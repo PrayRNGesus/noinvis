@@ -1,8 +1,8 @@
 no-invis-in-pvp: 
  enabled: true
- message: "&e(!) &cElytra's are disabled in pvp!"
+ message: "&e(!) &cInvisibility is disabled in pvp!"
 no-harm-in-pvp: 
  enabled: true
- message: "&e(!) &cElytra's are disabled in pvp!"
+ message: "&e(!) &cInstant Harming is disabled in pvp!"
  
  
