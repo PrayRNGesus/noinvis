@@ -42,7 +42,7 @@ public class CustomHandler extends FlagValueChangeHandler<State> {
 		Player p = Bukkit.getPlayer(uuid);
 
 		if (p.hasPotionEffect(PotionEffectType.INVISIBILITY)) {
-			if (p.hasPermission("invis.bypass") || p.hasPermission("harming.bypass")) {
+			if (p.hasPermission("invis.bypass")) {
 				return true;
 			} else {
 				p.removePotionEffect(PotionEffectType.INVISIBILITY);
