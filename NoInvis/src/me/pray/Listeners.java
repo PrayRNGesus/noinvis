@@ -48,7 +48,7 @@ public class Listeners implements Listener {
 							return;
 						}
 
-						if (player.hasPermission("invis.bypass") || player.hasPermission("harming.bypass")) {
+						if (player.hasPermission("invis.bypass")) {
 							player.sendMessage(format("&cIt appears you bypass the anti-invis!"));
 							return;
 						}
@@ -117,7 +117,7 @@ public class Listeners implements Listener {
 	}
 
 	public String format(String string) {
-		return string.replace("&", "ง");
+		return string.replace("&", "ยง");
 	}
 
 }
