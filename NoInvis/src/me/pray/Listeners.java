@@ -55,14 +55,14 @@ public class Listeners implements Listener {
 
 						if (effect.getType().equals(PotionEffectType.INVISIBILITY)) {
 							if (noe.getConfig().getBoolean("no-invis-in-pvp.enabled")) {
+								event.setCancelled(true);
 								player.sendMessage(format(noe.getConfig().getString("no-invis-in-pvp.message")));
 							}
-							event.setCancelled(true);
 						} else if (effect.getType().equals(PotionEffectType.HARM)) {
 							if (noe.getConfig().getBoolean("no-harm-in-pvp.enabled")) {
+								event.setCancelled(true);
 								player.sendMessage(format(noe.getConfig().getString("no-harm-in-pvp.message")));
 							}
-							event.setCancelled(true);
 						}
 
 					}
@@ -89,8 +89,8 @@ public class Listeners implements Listener {
 			PotionMeta meta = (PotionMeta) event.getItem().getItemMeta();
 			PotionData data = meta.getBasePotionData();
 			if (data.getType() == PotionType.INVISIBILITY) {
-				event.setCancelled(true);
 				if (noe.getConfig().getBoolean("no-invis-in-pvp.enabled")) {
+					event.setCancelled(true);
 					player.sendMessage(format(noe.getConfig().getString("no-invis-in-pvp.message")));
 				}
 			}
