@@ -15,18 +15,7 @@ public class NoInvis extends JavaPlugin {
 	public void onEnable() {
 		console.sendMessage(ChatColor.GREEN + "NoInvis started successfully! " + ChatColor.DARK_PURPLE
 				+ "Made by Pray on 11/5/2021, Version: 1.0");
-		getConfig().options().copyDefaults();
-		saveDefaultConfig();
-
-		getConfig().createSection("no-invis-in-pvp");
-		getConfig().set("no-invis-in-pvp.enabled", true);
-		getConfig().set("no-invis-in-pvp.message", "&e(!) &cInvisibility is disabled in pvp!");
-
-		getConfig().createSection("no-harm-in-pvp");
-		getConfig().set("no-harm-in-pvp.enabled", true);
-		getConfig().set("no-harm-in-pvp.message", "&e(!) &cInstant Harming is disabled in pvp!");
-
-		saveConfig();
+		createFiles();
 
 		initCmds();
 		initEvents();
@@ -42,5 +31,23 @@ public class NoInvis extends JavaPlugin {
 	public void initEvents() {
 		getServer().getPluginManager().registerEvents(new Listeners(this), this);
 	}
+	
+	 private void createFiles() {
+         configf = new File(getDataFolder(), "config.yml");
+
+        if (!configf.exists()) {
+            configf.getParentFile().mkdirs();
+            saveResource("config.yml", false);
+        }
+
+        config = new YamlConfiguration();
+
+        try {
+            config.load(configf);
+        } catch (IOException | InvalidConfigurationException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }
